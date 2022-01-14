@@ -1,0 +1,5 @@
+<p>Hello world!</p>
+
+<can-import from="./counter" />
+
+<my-counter bar:from="this.foo"/>

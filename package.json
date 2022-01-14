@@ -1,0 +1,22 @@
+{
+  "name": "can-stache-transform",
+  "version": "0.1.0",
+  "description": "Stache Jest transformer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "babel-jest": "^27.4.6",
+    "can": "^6.6.2",
+    "jest": "^27.4.7"
+  },
+  "dependencies": {
+    "can-stache-ast": "^1.1.0"
+  }
+}
