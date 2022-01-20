@@ -4,17 +4,54 @@
   "description": "Stache Jest transformer",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update dist for release\" && git checkout -b release && git add -f dist/",
+    "postversion": "git push --tags && git checkout master && git branch -D release && git push",
+    "test": "npm run detect-cycle && npm run lint && npx jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release:pre": "npm version prerelease && npm run build && npm publish --tag=pre",
+    "release:patch": "npm version patch && npm run build && npm publish",
+    "release:minor": "npm version minor && npm run build && npm publish",
+    "release:major": "npm version major && npm run build && npm publish",
+    "detect-cycle": "detect-cyclic-packages --ignore done-serve"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canjs/can-validate-validatejs.git"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "can-stache-transform",
+    "jest",
+    "can-stache",
+    "stache",
+    "canjs"
+  ],
+  "author": {
+    "name": "Bitovi"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/canjs/can-stache-transform/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
     "@babel/preset-env": "^7.16.8",
     "babel-jest": "^27.4.6",
     "can": "^6.6.2",
-    "jest": "^27.4.7"
+    "detect-cyclic-packages": "^1.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1"
   },
   "dependencies": {
     "can-stache-ast": "^1.1.0"

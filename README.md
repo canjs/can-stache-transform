@@ -26,7 +26,7 @@ module.exports = {
     transform: {
         "^.+\\.js$": "babel-jest",
         "^.+\\.mjs$": "babel-jest",
-        "^.+\\.stache$": 'stache-transformer.js',
+        "^.+\\.stache$": 'can-stache-transform',
     },
 }
 ```

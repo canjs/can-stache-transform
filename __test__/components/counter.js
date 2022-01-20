@@ -7,14 +7,14 @@ export class Counter extends StacheElement {
 
 	static props = {
 		count: 0,
-		bar: {type: type.maybeConvert(String)}
+		bar: { type: type.maybeConvert(String) }
 	}
 
-	increment() {
+	increment () {
 		this.count++
 	}
 
-	decrement() {
+	decrement () {
 		if (this.count > 0) {
 			this.count--
 		}
