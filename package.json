@@ -1,12 +1,12 @@
 {
   "name": "can-stache-transform",
-  "version": "0.1.1-0",
+  "version": "0.1.0",
   "description": "Stache Jest transformer",
   "main": "index.js",
   "scripts": {
     "preversion": "npm test",
     "version": "git commit -am \"Release\" && git checkout -b release && git add -f .",
-    "postversion": "git push --tags && git checkout master && git branch -D release && git push",
+    "postversion": "git push --tags && git checkout main && git branch -D release && git push",
     "test": "npm run detect-cycle && npm run lint && npx jest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
